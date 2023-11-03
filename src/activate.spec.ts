@@ -6,8 +6,8 @@ test('Activate domain on noip.com', async ({ page }) => {
   const user = process.env.USERNAME || ""
   const pass = process.env.PASSWORD || ""
 
-  expect(user).toBeTruthy()
-  expect(pass).toBeTruthy()
+  expect(user, "USERNAME env variable is missing").toBeTruthy()
+  expect(pass, "PASSWORD env variable is missing").toBeTruthy()
 
   await page.goto('https://www.noip.com/login');
 

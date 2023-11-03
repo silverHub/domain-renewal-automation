@@ -1,11 +1,10 @@
-name: Playwright Tests
+name: No-IP domain activation
 on:
-  push:
-    branches: [ main, master ]
-  pull_request:
-    branches: [ main, master ]
+  workflow_dispatch:
+  schedule:
+    - cron: '0 18 15 * *'
 jobs:
-  test:
+  activate:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:

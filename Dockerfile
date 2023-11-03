@@ -12,6 +12,5 @@ RUN npx playwright install --with-deps chromium
 COPY src ./src
 COPY playwright.config.ts . 
 
-ENTRYPOINT [ "/bin/bash" ]
-#ENTRYPOINT [ "npx", "playwright", "test" ]
+ENTRYPOINT [ "npx", "playwright", "test" ]
 
