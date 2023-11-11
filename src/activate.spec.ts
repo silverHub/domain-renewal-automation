@@ -25,8 +25,8 @@ test('Activate domain on noip.com', async ({ page }) => {
   // Go to domains
   await page.goto('https://my.noip.com/dynamic-dns')
 
-  //const activateBtn = page.getByRole('link', { name: 'Active' })
-  const modifyBtn = page.getByRole('button', { name: 'd Modify' })
-
-  await expect(modifyBtn).toBeInViewport();
+  const confirmBtn = page.getByRole('button', { name: "Confirm" })
+  //const modifyBtn = page.getByRole('button', { name: 'd Modify' })
+  //await expect(modifyBtn).toBeInViewport();
+  confirmBtn.click();
 });
