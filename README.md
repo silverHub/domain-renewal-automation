@@ -8,10 +8,21 @@ Alternative: change to free dynamic [DNS provider](https://www.nsupdate.info/)
 
 # Solution
 
+Playwright script automates the process of activating the domain via browser. Executed as a GH actions workflow, scheduled once in every month.
 
-Playwright script automates the process of activating the domain via browser. Executed as a GH actions workflow, scheduled once every month.
+# Local Setup
 
+To run locally you should 
+```
+# install package.json 
+npm i 
 
+# install Chromium for playwright
+npx playwright install --with-deps chromium
+
+# run activation 
+npx playwright test
+```
 
 # Containerization
 
@@ -22,5 +33,3 @@ docker build -t activate .
 
 docker run --rm -e USERNAME=<USER> -e PASSWORD=<PASS> activate 
 ```
-# TODO
-- update script to find Activate button when domain expired 
