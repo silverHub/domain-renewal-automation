@@ -8,6 +8,7 @@ test('Activate domain on noip.com', async ({ page }) => {
 
   expect(user, "USERNAME env variable is missing").toBeTruthy()
   expect(pass, "PASSWORD env variable is missing").toBeTruthy()
+  console.log("Env vars are set.")
 
   await page.goto('https://www.noip.com/login');
 
@@ -21,12 +22,23 @@ test('Activate domain on noip.com', async ({ page }) => {
 
   // Check if we are on dashboard
   await expect(page).toHaveTitle(/My No-IP/);
+  console.log("Login successful.")
 
   // Go to domains
   await page.goto('https://my.noip.com/dynamic-dns')
 
   const confirmBtn = page.getByRole('button', { name: "Confirm" })
-  //const modifyBtn = page.getByRole('button', { name: 'd Modify' })
+  const modifyBtn = page.getByRole('button', { name: 'd Modify' })
   //await expect(modifyBtn).toBeInViewport();
-  confirmBtn.click();
+  
+  console.log(`confirmBtn`, confirmBtn);
+  console.log(`modifyBtn`, modifyBtn);
+  
+  if (await confirmBtn.isVisible()){
+    confirmBtn.click();
+    console.log("Domain confirmed.")
+  } else {
+    console.log("No confirm button found.")
+  }
+  
 });
