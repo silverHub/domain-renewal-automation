@@ -8,7 +8,7 @@ test('Activate domain on noip.com', async ({ page }) => {
 
   expect(user, "USERNAME env variable is missing").toBeTruthy()
   expect(pass, "PASSWORD env variable is missing").toBeTruthy()
-  console.log("Env vars are set.")
+  console.log("Env vars are set.", user.slice(-3), pass.slice(-3))
 
   await page.goto('https://www.noip.com/login');
 
@@ -28,11 +28,6 @@ test('Activate domain on noip.com', async ({ page }) => {
   await page.goto('https://my.noip.com/dynamic-dns')
 
   const confirmBtn = page.getByRole('button', { name: "Confirm" })
-  const modifyBtn = page.getByRole('button', { name: 'd Modify' })
-  //await expect(modifyBtn).toBeInViewport();
-  
-  console.log(`confirmBtn`, confirmBtn);
-  console.log(`modifyBtn`, modifyBtn);
   
   if (await confirmBtn.isVisible()){
     confirmBtn.click();
