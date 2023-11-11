@@ -8,7 +8,7 @@ test('Activate domain on noip.com', async ({ page }) => {
 
   expect(user, "USERNAME env variable is missing").toBeTruthy()
   expect(pass, "PASSWORD env variable is missing").toBeTruthy()
-  console.log("Env vars are set.", user.slice(-3), pass.slice(-3))
+  console.log("Env vars are set.")
 
   await page.goto('https://www.noip.com/login');
 
